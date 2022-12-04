@@ -8,9 +8,8 @@ import (
 )
 
 const (
-	usersURl      = "/users"
-	userURL       = "/users/:uuid"
-	createUserURL = "/create"
+	usersURl = "/users"
+	userURL  = "/users/:uuid"
 )
 
 type handler struct {
@@ -23,7 +22,7 @@ func NewHandler() handlers.Handler {
 func (h *handler) Register(router *httprouter.Router) {
 	router.GET(usersURl, h.GetList)
 	router.POST(userURL, h.GetUserByUUID)
-	router.GET(createUserURL, h.CreateUser)
+	router.GET(userURL, h.CreateUser)
 	router.PUT(userURL, h.UpdateUser)
 	router.PATCH(usersURl, h.PartiallyUpdateUser)
 	router.DELETE(usersURl, h.DeleteUser)
