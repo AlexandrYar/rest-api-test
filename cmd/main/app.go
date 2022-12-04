@@ -8,13 +8,15 @@ import (
 	"time"
 
 	"github.com/julienschmidt/httprouter"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
-	log.Println("create router...")
+	logger := logrus.New()
+	logger.Info("create router...")
 	//Инициализация объекта router
 	router := httprouter.New()
-	log.Println("create handler...")
+	logger.Fatal("create handler...")
 	handler := user.NewHandler()
 	handler.Register(router)
 	start(router)
